@@ -7,9 +7,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
 
 
@@ -26,8 +23,7 @@ app.use((req, res, next) => {
   console.log("ben app.js'te calisan bir middleware'im ")
   next()
 })
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', require('./routes/index'));
 
 
 
